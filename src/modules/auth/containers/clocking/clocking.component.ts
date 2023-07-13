@@ -5,10 +5,10 @@ import {Router} from "@angular/router";
 @Component({
     selector: 'sb-register',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './register.component.html',
-    styleUrls: ['register.component.scss'],
+    templateUrl: './clocking.component.html',
+    styleUrls: ['clocking.component.scss'],
 })
-export class RegisterComponent  {
+export class ClockingComponent {
 
     showClockInButton: boolean = true;
     showClockOutButton: boolean = false;

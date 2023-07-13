@@ -30,7 +30,7 @@ export const ROUTES: Routes = [
     {
         path: 'clock',
         canActivate: [],
-        component: authContainers.RegisterComponent,
+        component: authContainers.ClockingComponent,
         data: {
             title: 'Pages Register - SB Admin Angular',
         } as SBRouteData,

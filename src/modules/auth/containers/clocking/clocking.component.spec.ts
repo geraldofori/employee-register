@@ -2,7 +2,7 @@ import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { RegisterComponent } from './register.component';
+import { ClockingComponent } from './clocking.component';
 
 @Component({
     template: `
@@ -20,13 +20,13 @@ describe('RegisterComponent', () => {
     let hostComponentDE: DebugElement;
     let hostComponentNE: Element;
 
-    let component: RegisterComponent;
+    let component: ClockingComponent;
     let componentDE: DebugElement;
     let componentNE: Element;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [TestHostComponent, RegisterComponent],
+            declarations: [TestHostComponent, ClockingComponent],
             imports: [NoopAnimationsModule],
             providers: [],
             schemas: [NO_ERRORS_SCHEMA],

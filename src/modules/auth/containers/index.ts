@@ -1,9 +1,9 @@
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { ClockingComponent } from '@modules/auth/containers/clocking/clocking.component';
 
-export const containers = [LoginComponent, RegisterComponent, ForgotPasswordComponent];
+export const containers = [LoginComponent, ClockingComponent, ForgotPasswordComponent];
 
 export * from './login/login.component';
-export * from './register/register.component';
+export * from '@modules/auth/containers/clocking/clocking.component';
 export * from './forgot-password/forgot-password.component';
