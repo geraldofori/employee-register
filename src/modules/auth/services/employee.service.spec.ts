@@ -1,18 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { MockUser, User } from '@testing/mocks';
 
-import { UserService } from './user.service';
+import { EmployeeService } from './employee.service';
 
 const mockUser = new MockUser();
 
 describe('UserService', () => {
-    let userService: UserService;
+    let userService: EmployeeService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [UserService],
+            providers: [EmployeeService],
         });
-        userService = TestBed.inject(UserService);
+        userService = TestBed.inject(EmployeeService);
     });
 
     describe('getUser$', () => {
