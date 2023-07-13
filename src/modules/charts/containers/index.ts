@@ -1,5 +1,5 @@
-import { ChartsComponent } from './charts/charts.component';
+import { AddEmployeeComponent } from '@modules/charts/containers/add-employee/add-employee.component';
 
-export const containers = [ChartsComponent];
+export const containers = [AddEmployeeComponent];
 
-export * from './charts/charts.component';
+export * from '@modules/charts/containers/add-employee/add-employee.component';

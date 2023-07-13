@@ -17,7 +17,7 @@ export const ROUTES: Routes = [
     {
         path: '',
         canActivate: [],
-        component: chartsContainers.ChartsComponent,
+        component: chartsContainers.AddEmployeeComponent,
         data: {
             title: 'Charts - SB Admin Angular',
             breadcrumbs: [

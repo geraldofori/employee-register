@@ -1,0 +1,29 @@
+<sb-layout-dashboard
+    ><sb-dashboard-head title="Add Employee" [hideBreadcrumbs]="false"></sb-dashboard-head
+    >
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="my-4">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" formControlName="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" formControlName="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Add Employee</button>
+    </form>
+
+    </sb-layout-dashboard
+>
