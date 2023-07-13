@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {ClockingComponent} from "@modules/clocking/clocking.component";
 
 const routes: Routes = [
     {
@@ -45,6 +46,11 @@ const routes: Routes = [
         loadChildren: () =>
             import('modules/error/error-routing.module').then(m => m.ErrorRoutingModule),
     },
+    {
+        path: 'clocking',
+        loadChildren: () =>
+            import('modules/clocking/clocking-routing.module').then(m => m.ClockingRoutingModule),
+    }
 ];
 
 @NgModule({
