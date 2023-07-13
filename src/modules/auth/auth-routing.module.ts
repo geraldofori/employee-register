@@ -28,7 +28,7 @@ export const ROUTES: Routes = [
         } as SBRouteData,
     },
     {
-        path: 'register',
+        path: 'clock',
         canActivate: [],
         component: authContainers.RegisterComponent,
         data: {
