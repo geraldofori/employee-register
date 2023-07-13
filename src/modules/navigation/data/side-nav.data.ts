@@ -6,11 +6,7 @@ export const sideNavSections: SideNavSection[] = [
         items: ['dashboard'],
     },
     {
-        text: 'INTERFACE',
-        items: ['layouts', 'pages'],
-    },
-    {
-        text: 'ADDONS',
+        text: 'OPTIONS',
         items: ['charts', 'tables'],
     },
 ];
@@ -82,7 +78,7 @@ export const sideNavItems: SideNavItems = {
     },
     tables: {
         icon: 'table',
-        text: 'Tables',
+        text: 'Employees',
         link: '/tables',
     },
 };
