@@ -38,11 +38,11 @@ export class AuthService {
     logout() {
         let reqHeader = new HttpHeaders();
         reqHeader = reqHeader.append('X-Auth-Token', '' + this.storedToken);
-        return this.httpClient.post('spa/api/logout', {}, {headers: reqHeader});
+        return this.httpClient.post('/api/logout', {}, {headers: reqHeader});
     }
 
     clientAuthentication() {
-        const url = 'spa/api/validate';
+        const url = '/api/validate';
         let reqHeader = new HttpHeaders();
         reqHeader = reqHeader.append('X-Auth-Token', '' + this.storedToken);
         return this.httpClient.post(url, {}, {headers: reqHeader});

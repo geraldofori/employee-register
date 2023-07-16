@@ -8,8 +8,8 @@
                     </div>
                     <div class="card-body">
 
-                        <p class="card-text">Clock in or clock out</p>
-                        <h3 class="text-center font-weight-light my-4">{{ username }}</h3>
+                        <p class="card-text justify-content align-content-center">Clock in/out</p>
+<!--                        <h3 class="text-center font-weight-light my-4">{{ username }}</h3>-->
                         <button class="btn btn-primary m-2" *ngIf="showClockInButton" (click)="clockIn()">Clock In</button>
                         <button class="btn btn-secondary" *ngIf="showClockOutButton" (click)="clockOut()">Clock Out</button>
 

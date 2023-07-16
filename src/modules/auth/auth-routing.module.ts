@@ -24,7 +24,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.LoginComponent,
         data: {
-            title: 'Pages Login - SB Admin Angular',
+            title: 'Employee Login',
         } as SBRouteData,
     },
     {
@@ -32,7 +32,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.ClockingComponent,
         data: {
-            title: 'Pages Register - SB Admin Angular',
+            title: 'Employee Clocking',
         } as SBRouteData,
     },
     {
