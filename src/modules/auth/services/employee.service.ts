@@ -18,7 +18,7 @@ export class EmployeeService {
   }
 
   public addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(`${this.apiServerUrl}/add`, employee);
+    return this.http.post<Employee>(`${this.apiServerUrl}/employee/save`, employee);
   }
 
   public updateEmployee(employee: Employee): Observable<Employee> {

@@ -21,11 +21,11 @@ export const sideNavItems: SideNavItems = {
     charts: {
         icon: 'chart-area',
         text: 'Add Employee',
-        link: '/charts',
+        link: '/add-employee',
     },
     tables: {
         icon: 'table',
-        text: 'Employees',
-        link: '/tables',
+        text: 'Employees List',
+        link: '/employees',
     },
 };

@@ -26,7 +26,7 @@ export const ROUTES: Routes = [
                     link: '/dashboard',
                 },
                 {
-                    text: 'Charts',
+                    text: 'Add Employee',
                     active: true,
                 },
             ],
