@@ -11,12 +11,11 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
-    error: any;
+    error: string | null = null;
     submitted: boolean = false;
-    username: any;
-    password: any;
-    rememberMe: any;
-
+    // username: any;
+    // password: any;
+    passwordVisible: boolean = false;
 
 
     constructor(
@@ -37,6 +36,11 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
     }
 
+
+    togglePasswordVisibility() {
+        this.passwordVisible = !this.passwordVisible;
+    }
+
     onSubmit() {
         this.submitted = true;
 
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
         return this.authService.login(credentials).subscribe(
             (data: any) => {
                 localStorage.setItem('token', data.access_token);
-                this.router.navigateByUrl('/dashboard');
+                this.router.navigateByUrl('/auth/clock');
             },
             (err: HttpErrorResponse) => {
                 if (err) {
