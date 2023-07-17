@@ -37,15 +37,28 @@ export class ClockingComponent {
         const payload = {
             employeeId: this.employeeId,
             timestamp: timestamp,
-            action: action
         };
 
-        this.http.post('http://localhost:8080/api/attendance', payload)
-            .subscribe(
-                () => {
-                    console.log('Attendance recorded successfully')
-                },
-                error => console.log('Error recording attendance:', error)
-            );
+        if(action == 'clockIn'){
+            this.http.post('http://localhost:8080/api/attendance/clockIn', payload)
+                .subscribe(
+                    () => {
+                        console.log('Clocked out successfully')
+                    },
+                    error => console.log('Error recording attendance:', error)
+                );
+
+        }else{
+            this.http.post('http://localhost:8080/api/attendance/clockOut', payload)
+                .subscribe(
+                    () => {
+                        console.log('Clocked out successfully')
+                    },
+                    error => console.log('Error recording attendance:', error)
+                );
+
+        }
+
+
     }
 }
