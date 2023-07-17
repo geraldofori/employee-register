@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
     selector: 'sb-register',
@@ -12,6 +13,9 @@ export class ClockingComponent {
 
     showClockInButton: boolean = true;
     showClockOutButton: boolean = false;
+    signedIn = false;
+    clockedIn = false;
+    toastMessage!: string;
 
     toggleClock(checked: boolean): void {
         this.showClockInButton = checked;
@@ -25,15 +29,21 @@ export class ClockingComponent {
     clockIn(): void {
         const timestamp = new Date().toISOString(); // Get current timestamp
         this.recordAttendance(timestamp, 'clockIn');
-        this.showClockInButton = false
-        this.router.navigate(['/auth/login']);
+        this.clockedIn = true;
+        // this.router.navigate(['/auth/login']);
+        // const clockInData = { employeeId: this.employee.employeeId, timestamp: new Date() };
+        // this.http.post('/api/clock-in', clockInData).subscribe((response) => {
+        //     this.clockedIn = true;
+        // });
+
+
     }
 
     clockOut(): void {
         const timestamp = new Date().toISOString(); // Get current timestamp
         this.recordAttendance(timestamp, 'clockOut');
-        this.showClockOutButton = false
-        this.router.navigate(['/auth/login']);
+        this.clockedIn = false;
+
 
     }
 
