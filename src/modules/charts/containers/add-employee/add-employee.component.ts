@@ -37,13 +37,11 @@ export class AddEmployeeComponent implements OnInit {
                 password: this.employeeForm.value.password,
             };
 
-            // Perform further actions like saving the employee to a database
             console.log(newEmployee);
 
             this.employeeService.addEmployee(newEmployee).subscribe(
                 (response) => {
                     console.log('Employee added:', response);
-                    // Reset the form after successful submission
                     this.employeeForm.reset();
                 },
                 (error) => {
@@ -52,8 +50,6 @@ export class AddEmployeeComponent implements OnInit {
             );
 
 
-            // Reset the form after submission
-            // this.employeeForm.reset();
         }
     }
 }

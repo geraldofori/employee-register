@@ -12,6 +12,7 @@ import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
 export class ClockingComponent {
 
     clockedIn = false;
+    message: string = '';
 
 
     employeeId!: string ;
@@ -22,6 +23,7 @@ export class ClockingComponent {
         const timestamp = new Date().toISOString(); // Get current timestamp
         this.recordAttendance(timestamp, 'clockIn');
         this.clockedIn = true;
+        this.message = 'Clock in successful.';
 
 
     }
@@ -30,6 +32,7 @@ export class ClockingComponent {
         const timestamp = new Date().toISOString(); // Get current timestamp
         this.recordAttendance(timestamp, 'clockOut');
         this.clockedIn = false;
+        this.message = 'Clock out successful.';
 
     }
 
