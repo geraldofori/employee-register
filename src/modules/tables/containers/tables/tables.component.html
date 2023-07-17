@@ -1,8 +1,35 @@
-<sb-layout-dashboard
-    ><sb-dashboard-head title="Employee List" [hideBreadcrumbs]="false"></sb-dashboard-head
-    ><sb-card
-        ><div class="card-body"></div></sb-card
-    ><sb-card
-        ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>DataTable Example</div>
-        <div class="card-body"><sb-ng-bootstrap-table [pageSize]="6"></sb-ng-bootstrap-table></div></sb-card
-></sb-layout-dashboard>
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Employee List" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-card>
+        <div class="card-body"></div>
+    </sb-card>
+    <sb-card>
+        <div class="card-header">
+            <fa-icon class="mr-1" [icon]='["fas", "table"]'></fa-icon>Employees List
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Job Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let employee of employees | async">
+                    <th scope="row">{{ employee.id }}</th>
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.address }}</td>
+                    <td>{{ employee.jobTitle }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </sb-card>
+</sb-layout-dashboard>

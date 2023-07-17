@@ -5,4 +5,5 @@ export interface Employee {
     jobTitle: string;
     username: string;
     password: string;
+    address?: string;
 }
