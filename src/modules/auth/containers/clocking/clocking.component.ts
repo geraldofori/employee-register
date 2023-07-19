@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -9,15 +9,20 @@ import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
     templateUrl: './clocking.component.html',
     styleUrls: ['clocking.component.scss'],
 })
-export class ClockingComponent {
+export class ClockingComponent implements OnInit{
 
     clockedIn = false;
     message: string = '';
 
-
     employeeId!: string ;
 
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
+
+    ngOnInit(): void {
+        this.route.queryParams.subscribe(params => {
+            this.employeeId = params['employeeId'];
+        });
+    }
 
     clockIn(): void {
         const timestamp = new Date().toISOString(); // Get current timestamp

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {AuthService} from "@modules/auth/services";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
     selector: 'sb-login',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         private http: HttpClient,
         public formBuilder: FormBuilder,
         private authService: AuthService,
+        private route: ActivatedRoute
     ) {
         // super();
         this.loginForm = this.formBuilder.group({
@@ -56,7 +57,8 @@ export class LoginComponent implements OnInit {
         return this.authService.login(credentials).subscribe(
             (data: any) => {
                 localStorage.setItem('token', data.access_token);
-                this.router.navigateByUrl('/auth/clock');
+                this.router.navigate(['/auth/clock'],{ queryParams: { employeeId: data.employeeId } });
+                // this.router.navigateByUrl(['/auth/clock'],{ queryParams: { employeeId: employeeId } });
             },
             (err: HttpErrorResponse) => {
                 if (err) {
