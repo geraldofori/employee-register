@@ -16,7 +16,7 @@ export class AuthService {
 
     login(credentials: any) {
         const headers = new HttpHeaders({'Accept': 'application/json'});
-        return this.httpClient.post<any>( 'http://localhost:8080/api/login', credentials, {headers});
+        return this.httpClient.post<any>( 'http://localhost:8080/login', credentials, {headers});
     }
 
     currentUser() {
