@@ -25,8 +25,7 @@ export class ClockingComponent implements OnInit{
     }
 
     clockIn(): void {
-        const timestamp = new Date().toISOString(); // Get current timestamp
-        this.recordAttendance(timestamp, 'clockIn');
+        this.recordAttendance( 'clockIn');
         this.clockedIn = true;
         this.message = 'Clock in successful.';
 
@@ -34,21 +33,19 @@ export class ClockingComponent implements OnInit{
     }
 
     clockOut(): void {
-        const timestamp = new Date().toISOString(); // Get current timestamp
-        this.recordAttendance(timestamp, 'clockOut');
+        this.recordAttendance('clockOut');
         this.clockedIn = false;
         this.message = 'Clock out successful.';
 
     }
 
-    recordAttendance(timestamp: string, action: string): void {
+    recordAttendance(action: string): void {
         const payload = {
             employeeId: this.employeeId,
-            timestamp: timestamp,
         };
 
         if(action == 'clockIn'){
-            this.http.post('http://localhost:8080/api/attendance/clockIn', payload)
+            this.http.post('http://localhost:8080/clockIn', payload)
                 .subscribe(
                     () => {
                         console.log('Clocked out successfully')
@@ -57,7 +54,7 @@ export class ClockingComponent implements OnInit{
                 );
 
         }else{
-            this.http.post('http://localhost:8080/api/attendance/clockOut', payload)
+            this.http.post('http://localhost:8080/clockOut', payload)
                 .subscribe(
                     () => {
                         console.log('Clocked out successfully')

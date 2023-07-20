@@ -14,11 +14,11 @@ export class EmployeeService {
   }
 
   public getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.apiServerUrl}api/employee`);
+    return this.http.get<Employee[]>(`${this.apiServerUrl}/employees`);
   }
 
   public addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(`${this.apiServerUrl}/employee/save`, employee);
+    return this.http.post<Employee>(`${this.apiServerUrl}/register`, employee);
   }
 
   public updateEmployee(employee: Employee): Observable<Employee> {

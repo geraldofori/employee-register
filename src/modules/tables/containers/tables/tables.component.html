@@ -25,7 +25,7 @@
                     <th scope="row">{{ employee.id }}</th>
                     <td>{{ employee.firstName }}</td>
                     <td>{{ employee.lastName }}</td>
-                    <td><a [routerLink]="['/employee', employee.id]">{{ employee.username }}</a></td>
+                    <td><a [routerLink]="['/employee', employee._id]">{{ employee.username }}</a></td>
                     <td>{{ employee.email }}</td>
                     <td>{{ employee.address }}</td>
                     <td>{{ employee.jobTitle }}</td>
