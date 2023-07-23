@@ -24,7 +24,6 @@ import {Attendance} from "@modules/auth/services/attendance";
 })
 export class NgBootstrapTableComponent implements OnInit {
     @Input() pageSize = 4;
-    // attendanceList: Attendance[] = [];
 
     attendanceRecords!: Observable<Attendance[]>;
 
