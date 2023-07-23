@@ -11,6 +11,10 @@ import { SBSortableHeaderDirective, SortEvent } from '@modules/tables/directives
 import { Country } from '@modules/tables/models';
 import { CountryService } from '@modules/tables/services';
 import { Observable } from 'rxjs';
+import {AttendanceService, EmployeeService} from "@modules/auth/services";
+import {Employee} from "@modules/auth/services/employee";
+import {Attendance} from "@modules/auth/services/attendance";
+
 
 @Component({
     selector: 'sb-ng-bootstrap-table',
@@ -20,30 +24,34 @@ import { Observable } from 'rxjs';
 })
 export class NgBootstrapTableComponent implements OnInit {
     @Input() pageSize = 4;
+    // attendanceList: Attendance[] = [];
+
+    attendanceRecords!: Observable<Attendance[]>;
+
 
     countries$!: Observable<Country[]>;
     total$!: Observable<number>;
-    sortedColumn!: string;
-    sortedDirection!: string;
 
     @ViewChildren(SBSortableHeaderDirective) headers!: QueryList<SBSortableHeaderDirective>;
 
     constructor(
         public countryService: CountryService,
-        private changeDetectorRef: ChangeDetectorRef
-    ) {}
+        private changeDetectorRef: ChangeDetectorRef,
+        private employeeService: EmployeeService,
+        private attendanceService: AttendanceService,
+    ) {
+
+    }
 
     ngOnInit() {
         this.countryService.pageSize = this.pageSize;
         this.countries$ = this.countryService.countries$;
         this.total$ = this.countryService.total$;
+
+
+        this.attendanceRecords = this.attendanceService.getAllAttendanceRecords()
     }
 
-    onSort({ column, direction }: SortEvent) {
-        this.sortedColumn = column;
-        this.sortedDirection = direction;
-        this.countryService.sortColumn = column;
-        this.countryService.sortDirection = direction;
-        this.changeDetectorRef.detectChanges();
-    }
+
+
 }
