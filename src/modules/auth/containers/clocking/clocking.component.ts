@@ -11,7 +11,8 @@ import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
 })
 export class ClockingComponent implements OnInit{
 
-    clockedIn = false;
+    currentDate!: string;
+    clockedIn: boolean = false;
     message: string = '';
 
     employeeId!: string ;
@@ -19,6 +20,8 @@ export class ClockingComponent implements OnInit{
     constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
+        this.currentDate = this.getCurrentDate();
+
         this.route.queryParams.subscribe(params => {
             this.employeeId = params['employeeId'];
         });
@@ -37,6 +40,12 @@ export class ClockingComponent implements OnInit{
         this.clockedIn = false;
         this.message = 'Clock out successful.';
 
+    }
+
+    getCurrentDate(): string {
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return today.toLocaleDateString('en-US', options);
     }
 
     recordAttendance(action: string): void {
