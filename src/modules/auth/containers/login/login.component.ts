@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
         this.loginForm = this.formBuilder.group({
             username : ['',Validators.required],
             password : ['',Validators.required],
-            rememberMe : [''],
             submitted: [false],
         });
     }
 
     ngOnInit(): void {
+        this.loginForm.reset();
     }
 
 
