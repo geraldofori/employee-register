@@ -8,9 +8,9 @@ const routes: Routes = [
         redirectTo: '/auth/login',
     },
     {
-        path: 'add-employee',
+        path: 'employee',
         loadChildren: () =>
-            import('modules/charts/charts-routing.module').then(m => m.ChartsRoutingModule),
+            import('@modules/employee/charts-routing.module').then(m => m.ChartsRoutingModule),
     },
     {
         path: 'dashboard',

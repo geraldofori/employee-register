@@ -9,17 +9,15 @@ import { ChartsModule } from './charts.module';
 /* Containers */
 import * as chartsContainers from './containers';
 
-/* Guards */
-import * as chartsGuards from './guards';
 
 /* Routes */
 export const ROUTES: Routes = [
     {
-        path: '',
+        path: 'add-employee',
         canActivate: [],
         component: chartsContainers.AddEmployeeComponent,
         data: {
-            title: 'Charts - SB Admin Angular',
+            title: 'Add Employee - Admin',
             breadcrumbs: [
                 {
                     text: 'Dashboard',
@@ -31,6 +29,24 @@ export const ROUTES: Routes = [
                 },
             ],
         } as SBRouteData,
+    },
+    {
+        path: 'employee-details',
+        data: {
+            title: 'Employee Details - Admin',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard',
+                    link: '/dashboard',
+                },
+                {
+                    text: 'Employee Details',
+                    active: true,
+                },
+            ],
+        } as SBRouteData,
+        canActivate: [],
+        component: chartsContainers.EmployeeDetailsComponent,
     },
 ];
 

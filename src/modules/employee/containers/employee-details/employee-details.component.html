@@ -1,0 +1,32 @@
+<sb-layout-dashboard
+    ><sb-dashboard-head title="Add Employee" [hideBreadcrumbs]="false"></sb-dashboard-head
+    >
+    <div class="container container-margin">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+                <!-- <p>
+                  emp-details works!
+                </p> -->
+                <div class="card" *ngIf="employee">
+                    <div class="card-header">
+                        {{employee.firstName}} {{employee.lastName}}
+                    </div>
+
+                    <div class="card-body">
+                        Mail: {{employee.email}}<br>
+                        Percentage: {{employee.percentage | percent:'2.2-3'}}
+                    </div>
+
+                    <div class="card-footer">
+                        <div style="display: block">
+                            <!-- Insert your chart here using Chart.js or any other chart library -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </sb-layout-dashboard
+>
