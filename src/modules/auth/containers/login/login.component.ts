@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         return this.authService.login(credentials).subscribe(
             (data: any) => {
                 localStorage.setItem('token', data.access_token);
-                this.router.navigate(['/auth/clock'],{ queryParams: { employeeId: data.employeeId } });
+                this.router.navigate(['/auth/clock'],{ queryParams: { employeeId: data.employeeId, username: data.username } });
                 // this.router.navigateByUrl(['/auth/clock'],{ queryParams: { employeeId: employeeId } });
             },
             (err: HttpErrorResponse) => {

@@ -20,6 +20,7 @@ export class ClockingComponent implements OnInit{
     clockedOutTime!: string;
 
     employeeId!: string ;
+    username!: string;
 
     constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute,private changeDetectorRef: ChangeDetectorRef ) {}
 
@@ -28,6 +29,7 @@ export class ClockingComponent implements OnInit{
 
         this.route.queryParams.subscribe(params => {
             this.employeeId = params['employeeId'];
+            this.username = params['username'];
             this.checkClockStatus();
         });
     }
@@ -36,7 +38,7 @@ export class ClockingComponent implements OnInit{
         this.recordAttendance( 'clockIn');
         this.clockedIn = true;
         this.message = 'Clock in successful.';
-        this.delayedLogoutAndRedirect(3000);
+        this.delayedLogoutAndRedirect(2000);
 
 
     }
@@ -45,7 +47,7 @@ export class ClockingComponent implements OnInit{
         this.recordAttendance('clockOut');
         this.clockedIn = false;
         this.message = 'Clock out successful.';
-        this.delayedLogoutAndRedirect(3000);
+        this.delayedLogoutAndRedirect(2000);
 
     }
 
