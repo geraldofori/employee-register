@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let employee of employees | async">
-                    <th scope="row">{{ employee.id }}</th>
+                    <th scope="row">{{ employee._id }}</th>
                     <td>{{ employee.firstName }}</td>
                     <td>{{ employee.lastName }}</td>
                     <td><a [routerLink]="['/employee', employee._id]">{{ employee.username }}</a></td>
