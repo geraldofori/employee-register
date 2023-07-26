@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
@@ -16,9 +16,12 @@ export class ClockingComponent implements OnInit{
     clockedOut: boolean = false;
     message: string = '';
 
+    clockedInTime!: string;
+    clockedOutTime!: string;
+
     employeeId!: string ;
 
-    constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
+    constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute,private changeDetectorRef: ChangeDetectorRef ) {}
 
     ngOnInit(): void {
         this.currentDate = this.getCurrentDate();
@@ -89,11 +92,27 @@ export class ClockingComponent implements OnInit{
             .subscribe(
                 (attendanceRecords) => {
                     if (attendanceRecords.length === 0) {
-                        this.clockedIn = false; // Employee has no clock-in records
+                        this.clockedIn = false;
+                        this.clockedOut = false; // Employee has no clock-in records
                     } else {
-                        const lastRecord = attendanceRecords[attendanceRecords.length - 1];
-                        this.clockedIn = !lastRecord.checkOut; // If checkOut is null, employee is clocked in
+                        const lastRecord = attendanceRecords[0];
+                        this.clockedIn = lastRecord.clockIn? true : false; // If clockOut is null, employee is clocked in
+                        this.clockedOut = lastRecord.clockOut? true : false; // If clockOut is not null, employee is clocked out
+
+                        if (this.clockedIn) {
+                            this.clockedInTime = new Date(lastRecord.clockIn).toLocaleTimeString();
+                        } else {
+                            this.clockedInTime = '-';
+                        }
+
+                        if (this.clockedOut) {
+                            this.clockedOutTime = new Date(lastRecord.clockOut).toLocaleTimeString();
+                        } else {
+                            this.clockedOutTime = '-';
+                        }
                     }
+
+                    this.changeDetectorRef.detectChanges();
                 },
                 error => console.log('Error fetching attendance records:', error)
             );
