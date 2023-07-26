@@ -17,4 +17,22 @@ export class TablesComponent implements OnInit {
         // Fetch the list of employees from the backend
         this.employees = this.employeeService.getEmployees()
     }
+
+    loadEmployees(): void {
+        this.employees = this.employeeService.getEmployees();
+        window.location.reload();
+    }
+
+    deleteEmployee(employeeId: string): void {
+        this.employeeService.deleteEmployee(employeeId).subscribe(
+            () => {
+                console.log('Employee deleted successfully.');
+                setTimeout(() => {
+                    this.loadEmployees();
+                }, 1000);            },
+            (error) => {
+                console.error('Error deleting employee:', error);
+            }
+        );
+    }
 }

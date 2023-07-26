@@ -4,7 +4,7 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Employee ID</th>
-        <th scope="col">Username</th>
+<!--        <th scope="col">Username</th>-->
         <th scope="col">Date</th>
         <th scope="col">Clock In</th>
         <th scope="col">Clock Out</th>
@@ -14,7 +14,7 @@
     <tr *ngFor="let attendance of attendanceRecords | async">
         <th scope="row">{{ ''}}</th>
         <td>{{ attendance._id }}</td>
-        <td><a [routerLink]="['/employee', attendance.employee._id]">{{ attendance.employee.username }}</a></td>
+<!--        <td><a [routerLink]="['/employee', attendance.employee._id]">{{ attendance?.employee.username }}</a></td>-->
         <td>{{ attendance.date | date:'fullDate' }}</td>
         <td>{{ attendance.clockIn | date:'shortTime' }}</td>
         <td>{{ attendance.clockOut | date:'shortTime' }}</td>
