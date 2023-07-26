@@ -13,6 +13,7 @@ export class ClockingComponent implements OnInit{
 
     currentDate!: string;
     clockedIn: boolean = false;
+    clockedOut: boolean = false;
     message: string = '';
 
     employeeId!: string ;
@@ -32,7 +33,7 @@ export class ClockingComponent implements OnInit{
         this.recordAttendance( 'clockIn');
         this.clockedIn = true;
         this.message = 'Clock in successful.';
-        // this.delayedLogoutAndRedirect(3000);
+        this.delayedLogoutAndRedirect(3000);
 
 
     }
@@ -41,7 +42,7 @@ export class ClockingComponent implements OnInit{
         this.recordAttendance('clockOut');
         this.clockedIn = false;
         this.message = 'Clock out successful.';
-        // this.delayedLogoutAndRedirect(3000);
+        this.delayedLogoutAndRedirect(3000);
 
     }
 
