@@ -51,6 +51,13 @@ export class ClockingComponent implements OnInit{
 
     }
 
+    logout(): void {
+
+
+        // After performing logout operations, navigate to the home page:
+        this.router.navigate(['auth/login']);
+    }
+
     getCurrentDate(): string {
         const today = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
