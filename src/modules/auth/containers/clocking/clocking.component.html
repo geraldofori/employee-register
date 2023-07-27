@@ -12,7 +12,7 @@
                         <p class="card-text font-weight-bold" style="font-size: 1.2rem" *ngIf="clockedOut">Clocked Out at: {{ clockedOutTime }}</p>
                         <button class="btn btn-primary m-2" *ngIf="!clockedIn && !clockedOut" (click)="clockIn()">Clock In</button>
                         <button class="btn btn-secondary" *ngIf="clockedIn && !clockedOut" (click)="clockOut()">Clock Out</button>
-                        <button class="btn btn-danger m-2" *ngIf="clockedInTime || clockedOutTime" (click)="logout()">Logout</button>
+                        <button class="btn btn-danger m-2" *ngIf="clockedInTime && clockedOutTime" (click)="logout()">Logout</button>
                         <p class="text-center mt-3" *ngIf="message">{{ message }}</p>
                     </div>
                 </div>
